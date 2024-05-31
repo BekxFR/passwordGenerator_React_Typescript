@@ -15,7 +15,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, checkedStatus }) => {
           <input
             type="checkbox"
             checked={isChecked}
-            onChange={() => setIsChecked((prev) => !prev)}
+            onChange={() => {
+              setIsChecked((prev) => !prev);
+              checkedStatus = !checkedStatus;
+            }}
           />
           <span></span>
           {label}

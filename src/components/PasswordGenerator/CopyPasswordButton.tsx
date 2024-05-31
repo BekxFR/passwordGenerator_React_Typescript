@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import { pgParams } from "../../types/PasswordGeneratorType";
+
+interface PasswordContainerProps {
+  pwdValue: string;
+}
 
 const CopySvg = () => {
   return (
@@ -11,17 +16,19 @@ const CopySvg = () => {
   );
 };
 
-export const CopyPasswordButton = () => {
+export const CopyPasswordButton: React.FC<PasswordContainerProps> = ({
+  pwdValue,
+}) => {
   const [copyStatus, setCopyStatus] = useState<boolean>(false);
 
   const handleClick = () => {
-    const textToCopy = "Voici le texte à copier dans le presse-papiers";
+    // const textToCopy = "Voici le texte à copier dans le presse-papiers";
     setCopyStatus(!copyStatus);
     setTimeout(() => {
       setCopyStatus(false);
     }, 3000);
     navigator.clipboard
-      .writeText(textToCopy)
+      .writeText(pwdValue)
       .then(() => {
         console.log("Texte copié avec succès!");
       })

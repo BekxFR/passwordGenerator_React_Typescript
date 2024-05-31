@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { pgParams } from "../../types/PasswordGeneratorType";
 
 interface SliderProps {
   min: number;
@@ -7,9 +8,13 @@ interface SliderProps {
   onChange: (value: number) => void;
 }
 
-export const LengthPart: React.FC = () => {
-  const [value, setValue] = useState<number>(10);
+export const LengthPart: React.FC<pgParams> = (props) => {
+  const [value, setValue] = useState<number>(props.pwdLength);
 
+  useEffect(() => {
+    setValue(props.pwdLength);
+  }, [props.pwdLength]);
+  // setValue(passwordLength);
   return (
     <div className="length-container">
       <div className="length-value">

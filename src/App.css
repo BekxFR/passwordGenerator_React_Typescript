@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Color+Emoji&display=swap");
 
-.PassGeneratorMain {
+.pg-body {
   background-color: #18171f;
   min-height: 100vh;
   min-width: 100%;
@@ -14,7 +14,7 @@
   font-weight: bold;
 }
 
-.responsiveHeader {
+.main-container {
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
@@ -34,7 +34,7 @@
 /* width: 550px; */
 /* } */
 
-.passwordMain {
+.password-container {
   background-color: #24232c;
   height: 80px;
   /* width: 100%; */
@@ -47,13 +47,13 @@
   /* width: 550px; */
   font-size: 24px;
 }
-
-.passwordField {
-  height: 43px;
-  font-size: 32px;
+.copy-section {
+  display: flex;
+  align-items: center;
+  color: #a4ffaf;
 }
 
-.settingsMain {
+.settings-container {
   background-color: #24232c;
   height: 528px;
   width: 100%;
@@ -65,7 +65,7 @@
   /* width: 550px; */
 }
 
-.settingsContent {
+.settings-box {
   width: 476px;
   height: 100%;
   display: flex;
@@ -75,7 +75,7 @@
   margin: 24px 0 32px 0;
 }
 
-.settingCheckBox {
+.settings-checkbox {
   height: 152px;
   width: 100%;
   display: flex;
@@ -83,26 +83,32 @@
   justify-content: space-between;
 }
 
-.passwordTitle {
+.pg-title {
   font-size: 24px;
   color: #817d92;
   margin-bottom: 31px;
 }
 
-.passwordField {
+.password-field {
+  height: 63px;
   display: flex;
   align-items: center;
-  height: 63px;
+  font-size: 32px;
   margin-left: 32px;
 }
 
-.copyPassword {
+.password-field:empty:before {
+  content: "P4$5W0rD!";
+  color: #54535b;
+}
+
+.copy-button {
   margin-right: 32px;
   display: flex;
   align-items: center;
 }
 
-.characterLengthMain {
+.length-container {
   width: 100%;
   height: 87px;
   display: flex;
@@ -112,7 +118,7 @@
   /* margin-top: 24px; */
 }
 
-.characterLengthValue {
+.length-value {
   height: 43px;
   width: 100%;
   display: flex;
@@ -122,18 +128,18 @@
   margin-bottom: 16px;
 }
 
-.characterText {
+.length-text {
   height: 23px;
   font-size: 18px;
 }
 
-.characterSize {
+.length-size {
   height: 43px;
   font-size: 32px;
   color: #a4ffaf;
 }
 
-.sliderBarOlder {
+.slider-container {
   height: 28px;
   width: 100%;
   padding-right: 3px;
@@ -238,7 +244,7 @@ input[type="checkbox"] + span {
   margin-right: 24px;
 }
 
-.strengthVisibility {
+.strength-container {
   background-color: #18171f;
   height: 72px;
   width: 100%;
@@ -247,7 +253,7 @@ input[type="checkbox"] + span {
   justify-content: space-between;
 }
 
-.levelContainer {
+.strength-level-box {
   height: 28px;
   margin: auto;
   margin-left: 7.5px;
@@ -257,9 +263,10 @@ input[type="checkbox"] + span {
   align-items: center; */
 }
 
-.generateButton {
+.generate-button {
   background-color: #a4ffaf;
-  height: 65px;
+  height: 63px;
+  border: 2px solid #a4ffaf;
   width: 100%;
   display: flex;
   align-items: center;
@@ -267,15 +274,31 @@ input[type="checkbox"] + span {
   /* margin: 32px 0; */
   color: #18171f;
   /* font-weight: bold; */
+  cursor: pointer;
 }
 
-.strengthText {
+.generate-button:hover {
+  background-color: #24232c;
+  border: 2px solid #a4ffaf;
+  color: #a4ffaf;
+}
+
+.generate-button svg {
+  padding-left: 24px;
+  fill: #18171f;
+}
+
+.generate-button:hover svg {
+  fill: #a4ffaf;
+}
+
+.strength-text {
   color: #817d92;
   margin-left: 32px;
   font-weight: bold;
 }
 
-.strengthValue {
+.strength-values {
   height: 32px;
   display: flex;
   align-items: center;
@@ -316,14 +339,14 @@ border: 2px solid #E6E5EA; */
 
 /* Styles pour les tablettes */
 /* @media (max-width: 1024px) {
-  .responsiveHeader {
+  .main-settings-container {
     width: 80%;
   }
 } */
 
 /* Styles pour les mobiles */
 /* @media (max-width: 768px) {
-  .responsiveHeader {
+  .main-settings-container {
     width: 95%;
   }
 } */
