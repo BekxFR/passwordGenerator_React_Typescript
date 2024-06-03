@@ -1,7 +1,7 @@
 export interface pgParams {
   pwdLength: number;
   pwdValue: string;
-  securLevel: number;
+  secureLevel: number;
   upperCase: boolean;
   lowerCase: boolean;
   numbers: boolean;
@@ -11,9 +11,16 @@ export interface pgParams {
 export const initialValues: pgParams = {
   pwdLength: 10,
   pwdValue: "",
-  securLevel: 4,
+  secureLevel: 4,
   upperCase: false,
   lowerCase: false,
   numbers: false,
   symbols: false,
 };
+
+export interface CheckboxProps {
+  upperCase: boolean;
+  lowerCase: boolean;
+  numbers: boolean;
+  symbols: boolean;
+}

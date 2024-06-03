@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface CheckboxProps {
   label: string;
   checkedStatus: boolean;
+  setterBooleanValue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ label, checkedStatus }) => {
-  const [isChecked, setIsChecked] = useState(checkedStatus);
+export const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  checkedStatus,
+  setterBooleanValue,
+}) => {
+  const handleCheckboxChange = () => {
+    setterBooleanValue((prevValue) => !prevValue);
+  };
 
   return (
     <div>
@@ -14,11 +21,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, checkedStatus }) => {
         <label>
           <input
             type="checkbox"
-            checked={isChecked}
-            onChange={() => {
-              setIsChecked((prev) => !prev);
-              checkedStatus = !checkedStatus;
-            }}
+            checked={checkedStatus}
+            onChange={handleCheckboxChange}
           />
           <span></span>
           {label}

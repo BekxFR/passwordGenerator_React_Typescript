@@ -1,36 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { CopyPasswordButton } from "./CopyPasswordButton";
-import { pgParams } from "../../types/PasswordGeneratorType";
+import { PasswordLengthContainer } from "./LengthAndSlider";
+import { StrengthContainer } from "./StrengthContainer";
+import { GeneratePasswordButton } from "./GeneratePasswordButton";
+import { PasswordGeneratorCheckbox } from "./PasswordGeneratorCheckboxes";
+import { pgParams, initialValues } from "./types/PasswordGeneratorType";
+import { useCountTrueCheckboxes } from "./hooks/useCountTrueCheckboxes";
+import { updateStrengthAndPassword } from "./updateStrengthAndPassword";
 
-interface SettingsAndGeneratorProps {
-  stateAndSetters: {
-    pwdLength: number;
-    setPwdLength: React.Dispatch<React.SetStateAction<number>>;
-    pwdValue: string;
-    setPwdValue: React.Dispatch<React.SetStateAction<string>>;
-    seurLevel: number;
-    setSecurLevel: React.Dispatch<React.SetStateAction<number>>;
-    upperCase: boolean;
-    setUpperCase: React.Dispatch<React.SetStateAction<boolean>>;
-    lowerCase: boolean;
-    setLowerCase: React.Dispatch<React.SetStateAction<boolean>>;
-    numbers: boolean;
-    setNumbers: React.Dispatch<React.SetStateAction<boolean>>;
-    symbols: boolean;
-    setSymbols: React.Dispatch<React.SetStateAction<boolean>>;
-  };
+interface pwdSetter {
+  setPwdValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const SettingsAndGenerator: React.FC<SettingsAndGeneratorProps> = ({
-  stateAndSetters,
-}) => {
-  const {
-    pwdLength,
-    setPwdLength,
-    pwdValue,
-    setPwdValue,
-    seurLevel,
-    setSecurLevel,
+export const SettingsAndGenerator: React.FC<pwdSetter> = (props) => {
+  const { setPwdValue } = props;
+
+  const values: pgParams = initialValues;
+  const [pwdLength, setPwdLength] = useState<number>(values.pwdLength);
+  const [secureLevel, setSecureLevel] = useState<number>(values.secureLevel);
+  const [upperCase, setUpperCase] = useState<boolean>(values.upperCase);
+  const [lowerCase, setLowerCase] = useState<boolean>(values.lowerCase);
+  const [numbers, setNumbers] = useState<boolean>(values.numbers);
+  const [symbols, setSymbols] = useState<boolean>(values.symbols);
+
+  const checkboxProps = {
     upperCase,
     setUpperCase,
     lowerCase,
@@ -39,6 +31,52 @@ export const SettingsAndGenerator: React.FC<SettingsAndGeneratorProps> = ({
     setNumbers,
     symbols,
     setSymbols,
-  } = stateAndSetters;
-  return <></>;
+  };
+
+  const trueValues = useCountTrueCheckboxes(checkboxProps);
+
+  useEffect(() => {
+    updateStrengthAndPassword({
+      setPwdValue,
+      setSecureLevel,
+      pwdLength,
+      checkboxProps,
+      trueValues,
+    });
+    // eslint-disable-next-line
+  }, [
+    pwdLength,
+    checkboxProps.lowerCase,
+    checkboxProps.numbers,
+    checkboxProps.symbols,
+    checkboxProps.upperCase,
+  ]);
+  return (
+    <>
+      <div className="settings-container">
+        <div className="settings-box">
+          <PasswordLengthContainer
+            pwdLength={pwdLength}
+            setPwdLength={setPwdLength}
+          />
+          <PasswordGeneratorCheckbox checkboxProps={checkboxProps} />
+          <div className="strength-container">
+            <p className="strength-text">STRENGTH</p>
+            <StrengthContainer level={secureLevel} />
+          </div>
+          <GeneratePasswordButton
+            updateStrengthAndPassword={() =>
+              updateStrengthAndPassword({
+                setPwdValue,
+                setSecureLevel,
+                pwdLength,
+                checkboxProps,
+                trueValues,
+              })
+            }
+          />
+        </div>
+      </div>
+    </>
+  );
 };

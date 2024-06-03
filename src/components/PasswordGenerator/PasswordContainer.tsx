@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CopyPasswordButton } from "./CopyPasswordButton";
-import { pgParams } from "../../types/PasswordGeneratorType";
 
 interface PasswordContainerProps {
   pwdValue: string;

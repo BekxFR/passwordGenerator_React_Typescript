@@ -25,20 +25,21 @@ const RectangleLevelSvg: React.FC<levelColor> = ({ fillValue, color }) => {
           width="8"
           height="26"
           stroke={color}
-          stroke-width="2"
+          strokeWidth="2"
         />
       </svg>
     </div>
   );
 };
 
-export const LengthValues: React.FC<LengthValuesProps> = ({ level }) => {
+export const StrengthContainer: React.FC<LengthValuesProps> = ({ level }) => {
   const strengthLevel: string[] = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
   const strengthColor: string[] = ["#F64A4A", "#FB7C58", "#F8CD65", "#A4FFAF"];
   const [value, setValue] = useState<string>("");
 
   useEffect(() => {
     setValue(strengthLevel[level]);
+    // eslint-disable-next-line
   }, [level]);
 
   const printStrengthLevel = (level: number) => {
