@@ -1,19 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Color+Emoji&display=swap");
 
+:root {
+  --green-color: #a4ffaf;
+  --text-color: #e6e5ea;
+  --background-color: #24232c;
+  --strength-color: #18171f;
+  --font-family: "JetBrains Mono", monospace;
+  --font-size-mobile: 16px;
+  --font-size-body: 18px;
+  --font-size-heading-m: 24px;
+  --font-size-heading-l: 32px;
+}
+
 .no-select {
   user-select: none;
+}
+
+html,
+body,
+root {
+  min-height: 100vh;
+  width: 100vw;
+  min-width: 345px;
 }
 
 .pg-body {
   background: linear-gradient(#14131b, #08070b);
   min-height: 100vh;
-  min-width: 100%;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #e6e5ea;
-  font-family: "JetBrains Mono";
+  color: var(--text-color);
+  font-family: var(--font-family);
   font-weight: bold;
 }
 
@@ -23,19 +43,19 @@
 }
 
 .password-container {
-  background-color: #24232c;
+  background-color: var(--background-color);
   height: 80px;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: var(--font-size-heading-m);
 }
 
 .copy-section {
   position: relative;
-  font-size: 18px;
-  color: #a4ffaf;
+  font-size: var(--font-size-body);
+  color: var(--green-color);
 }
 
 .copied-text {
@@ -47,14 +67,14 @@
 }
 
 .settings-container {
-  background-color: #24232c;
+  background-color: var(--background-color);
   height: 528px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: var(--font-size-body);
 }
 
 .settings-box {
@@ -76,7 +96,7 @@
 }
 
 .pg-title {
-  font-size: 24px;
+  font-size: var(--font-size-heading-m);
   color: #817d92;
   margin-bottom: 31px;
 }
@@ -85,7 +105,7 @@
   height: 63px;
   display: flex;
   align-items: center;
-  font-size: 32px;
+  font-size: var(--font-size-heading-l);
   margin-left: 32px;
 }
 
@@ -104,11 +124,11 @@
 
 .copy-button svg {
   object-fit: contain;
-  fill: #a4ffaf;
+  fill: var(--green-color);
 }
 
 .copy-button:hover svg {
-  fill: #e6e5ea;
+  fill: var(--text-color);
 }
 
 .length-container {
@@ -126,19 +146,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: var(--font-size-body);
   margin-bottom: 16px;
 }
 
 .length-text {
   height: 23px;
-  font-size: 18px;
+  font-size: var(--font-size-body);
 }
 
 .length-size {
   height: 43px;
-  font-size: 32px;
-  color: #a4ffaf;
+  font-size: var(--font-size-heading-l);
+  color: var(--green-color);
 }
 
 .slider-container {
@@ -151,11 +171,12 @@
 .slider {
   -webkit-appearance: none;
   height: 8px;
-  background: #18171f;
-  background-image: linear-gradient(#a4ffaf, #a4ffaf);
+  background: var(--strength-color);
+  background-image: linear-gradient(var(--green-color), var(--green-color));
   background-repeat: no-repeat;
   width: 100%;
   cursor: pointer;
+  margin: 0 0 0 2px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -163,9 +184,8 @@ input[type="range"]::-webkit-slider-thumb {
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  background: #e6e5ea;
+  background: var(--text-color);
   cursor: pointer;
-  margin-right: 2px;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
@@ -174,9 +194,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
   width: 28px;
   border-radius: 50%;
   border-width: 10px;
-  border-color: #a4ffaf;
-  background: #18171f;
-  box-shadow: #a4ffaf 0px 0px 0px 2px;
+  border-color: var(--green-color);
+  background: var(--strength-color);
+  box-shadow: var(--green-color) 0px 0px 0px 2px;
   cursor: pointer;
 }
 
@@ -190,6 +210,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="checkbox"] {
   display: none;
 }
+
 input[type="checkbox"] + span {
   display: inline-block;
   position: relative;
@@ -198,17 +219,17 @@ input[type="checkbox"] + span {
   height: 16px;
   vertical-align: middle;
   background: rgba(255, 255, 255, 0) left top no-repeat;
-  border: 2px solid #e6e5ea;
+  border: 2px solid var(--text-color);
   cursor: pointer;
 }
 
 input[type="checkbox"]:hover + span {
-  border: 2px solid #a4ffaf;
+  border: 2px solid var(--green-color);
 }
 
 input[type="checkbox"]:checked + span {
-  background: #a4ffaf -19px top no-repeat;
-  border: 2px solid #a4ffaf;
+  background: var(--green-color) -19px top no-repeat;
+  border: 2px solid var(--green-color);
   background-image: url(/public/icon-check.svg);
   background-size: auto;
   background-position-x: center;
@@ -220,7 +241,7 @@ input[type="checkbox"] + span {
 }
 
 .strength-container {
-  background-color: #18171f;
+  background-color: var(--strength-color);
   height: 72px;
   width: 100%;
   display: flex;
@@ -233,35 +254,34 @@ input[type="checkbox"] + span {
   height: 28px;
   margin: auto;
   margin-left: 7.5px;
-  color: #a4ffaf;
+  color: var(--green-color);
 }
 
 .generate-button {
-  background-color: #a4ffaf;
+  background-color: var(--green-color);
   height: 63px;
-  border: 2px solid #a4ffaf;
-  width: 100% -2px;
+  border: 2px solid var(--green-color);
+  width: calc(100% - 4px);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  color: #18171f;
+  color: var(--strength-color);
   cursor: pointer;
 }
 
 .generate-button:hover {
-  background-color: #24232c;
-  border: 2px solid #a4ffaf;
-  color: #a4ffaf;
+  background-color: var(--background-color);
+  border: 2px solid var(--green-color);
+  color: var(--green-color);
 }
 
 .generate-button svg {
   padding-left: 24px;
-  fill: #18171f;
+  fill: var(--strength-color);
 }
 
 .generate-button:hover svg {
-  fill: #a4ffaf;
+  fill: var(--green-color);
 }
 
 .strength-text {
@@ -280,7 +300,7 @@ input[type="checkbox"] + span {
   align-items: center;
   margin-right: 32px;
   font-weight: bold;
-  font-size: 24px;
+  font-size: var(--font-size-heading-m);
 }
 
 .App {
@@ -309,7 +329,7 @@ input[type="checkbox"] + span {
   }
 
   .password-field {
-    font-size: 24px;
+    font-size: var(--font-size-heading-m);
     margin: 16px 0 16px 16px;
   }
 
@@ -326,6 +346,10 @@ input[type="checkbox"] + span {
   .settings-box {
     width: 311px;
     margin: 16px 0;
+  }
+
+  input[type="checkbox"] + span {
+    margin-right: 20px;
   }
 
   .strength-container {
@@ -356,7 +380,7 @@ input[type="checkbox"] + span {
   }
 
   .length-size {
-    font-size: 24px;
+    font-size: var(--font-size-heading-m);
   }
 
   .settings-checkbox {
@@ -369,6 +393,6 @@ input[type="checkbox"] + span {
 
   .strength-values {
     margin-right: 16px;
-    font-size: 18px;
+    font-size: var(--font-size-body);
   }
 }
