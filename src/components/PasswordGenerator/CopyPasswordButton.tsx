@@ -29,20 +29,10 @@ export const CopyPasswordButton: React.FC<PasswordContainerProps> = ({
 
   return (
     <div className="copy-section">
-      {copyStatus && (
-        <div className="copied-text">
-          <span style={{ marginRight: "16px", zIndex: "1" }}>COPIED</span>
-        </div>
-      )}
+      {copyStatus && <span className="copied-text">COPIED</span>}
       <button
         className="copy-button"
         onClick={handleClick}
-        style={{
-          background: "none",
-          border: "none",
-          padding: 0,
-          cursor: "pointer",
-        }}
         aria-label="Copy Password SVG Button"
       >
         <CopySvg />

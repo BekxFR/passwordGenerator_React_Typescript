@@ -54,14 +54,17 @@ root {
 
 .copy-section {
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
   font-size: var(--font-size-body);
   color: var(--green-color);
 }
 
 .copied-text {
   position: absolute;
+  right: 37px;
   top: 50%;
-  right: 13px;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
@@ -116,10 +119,14 @@ root {
 
 .copy-button {
   margin-right: 32px;
-  display: flex;
-  align-items: center;
   height: 24px;
   width: 21px;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .copy-button svg {
@@ -151,14 +158,14 @@ root {
 }
 
 .length-text {
-  height: 23px;
   font-size: var(--font-size-body);
+  margin: 0;
 }
 
 .length-size {
-  height: 43px;
   font-size: var(--font-size-heading-l);
   color: var(--green-color);
+  margin: 0;
 }
 
 .slider-container {
@@ -230,7 +237,7 @@ input[type="checkbox"]:hover + span {
 input[type="checkbox"]:checked + span {
   background: var(--green-color) -19px top no-repeat;
   border: 2px solid var(--green-color);
-  background-image: url(/public/icon-check.svg);
+  background-image: url(../public/icon-check.svg);
   background-size: auto;
   background-position-x: center;
   background-position-y: 3px;
@@ -338,6 +345,12 @@ input[type="checkbox"] + span {
     height: 20px;
     width: 17.5px;
   }
+
+  .copied-text {
+    right: 16px;
+    font-size: var(--font-size-mobile);
+  }
+
   .settings-container {
     height: 423px;
     font-size: 16px;
@@ -365,10 +378,6 @@ input[type="checkbox"] + span {
     font-size: 20px;
   }
 
-  .length-text {
-    font-size: 16px;
-  }
-
   .length-container {
     height: 67px;
   }
@@ -376,7 +385,10 @@ input[type="checkbox"] + span {
   .length-value {
     height: 31px;
     margin-bottom: 8px;
-    font-size: 16px;
+  }
+
+  .length-text {
+    font-size: var(--font-size-mobile);
   }
 
   .length-size {
