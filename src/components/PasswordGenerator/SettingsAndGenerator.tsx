@@ -60,21 +60,23 @@ export const SettingsAndGenerator: React.FC<pwdSetter> = (props) => {
             setPwdLength={setPwdLength}
           />
           <PasswordGeneratorCheckbox checkboxProps={checkboxProps} />
-          <div className="strength-container">
-            <p className="strength-text">STRENGTH</p>
-            <StrengthContainer level={secureLevel} />
+          <div className="strength-and-generate-button-container">
+            <div className="strength-container">
+              <p className="strength-text">STRENGTH</p>
+              <StrengthContainer level={secureLevel} />
+            </div>
+            <GeneratePasswordButton
+              updateStrengthAndPassword={() =>
+                updateStrengthAndPassword({
+                  setPwdValue,
+                  setSecureLevel,
+                  pwdLength,
+                  checkboxProps,
+                  trueValues,
+                })
+              }
+            />
           </div>
-          <GeneratePasswordButton
-            updateStrengthAndPassword={() =>
-              updateStrengthAndPassword({
-                setPwdValue,
-                setSecureLevel,
-                pwdLength,
-                checkboxProps,
-                trueValues,
-              })
-            }
-          />
         </div>
       </div>
     </>

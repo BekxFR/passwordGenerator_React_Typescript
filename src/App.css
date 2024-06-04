@@ -5,7 +5,7 @@
 }
 
 .pg-body {
-  background-color: #18171f;
+  background: linear-gradient(#14131b, #08070b);
   min-height: 100vh;
   min-width: 100%;
   display: flex;
@@ -31,10 +31,19 @@
   justify-content: space-between;
   font-size: 24px;
 }
+
 .copy-section {
-  display: flex;
-  align-items: center;
+  position: relative;
+  font-size: 18px;
   color: #a4ffaf;
+}
+
+.copied-text {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .settings-container {
@@ -89,9 +98,12 @@
   margin-right: 32px;
   display: flex;
   align-items: center;
+  height: 24px;
+  width: 21px;
 }
 
 .copy-button svg {
+  object-fit: contain;
   fill: #a4ffaf;
 }
 
@@ -214,6 +226,7 @@ input[type="checkbox"] + span {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .strength-level-box {
@@ -227,7 +240,7 @@ input[type="checkbox"] + span {
   background-color: #a4ffaf;
   height: 63px;
   border: 2px solid #a4ffaf;
-  width: 100%;
+  width: 100% -2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,6 +270,10 @@ input[type="checkbox"] + span {
   font-weight: bold;
 }
 
+.strength-and-generate-button-container {
+  width: 100%;
+}
+
 .strength-values {
   height: 32px;
   display: flex;
@@ -275,28 +292,83 @@ input[type="checkbox"] + span {
   pointer-events: none;
 }
 
-/* Styles pour les mobiles */
-/* @media (max-width: 768px) {
-  .main-settings-container {
-    width: 95%;
+@media (max-width: 768px) {
+  .pg-title {
+    font-size: 16px;
+    margin-bottom: 16px;
   }
-} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .main-container {
+    width: 343px;
+    height: 503px;
   }
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .password-container {
+    height: 64px;
+    margin-bottom: 16px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .password-field {
+    font-size: 24px;
+    margin: 16px 0 16px 16px;
+  }
+
+  .copy-button {
+    margin-right: 16px;
+    height: 20px;
+    width: 17.5px;
+  }
+  .settings-container {
+    height: 423px;
+    font-size: 16px;
+  }
+
+  .settings-box {
+    width: 311px;
+    margin: 16px 0;
+  }
+
+  .strength-container {
+    height: 56px;
+    margin-bottom: 16px;
+  }
+
+  .generate-button {
+    height: 54px;
+  }
+
+  .strength-values {
+    font-size: 20px;
+  }
+
+  .length-text {
+    font-size: 16px;
+  }
+
+  .length-container {
+    height: 67px;
+  }
+
+  .length-value {
+    height: 31px;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .length-size {
+    font-size: 24px;
+  }
+
+  .settings-checkbox {
+    height: 132px;
+  }
+
+  .strength-text {
+    margin-left: 16px;
+  }
+
+  .strength-values {
+    margin-right: 16px;
+    font-size: 18px;
   }
 }
