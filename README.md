@@ -91,7 +91,8 @@ La robustesse du mot de passe est affichée en fonction de la longueur et du jeu
 
 ## Informations Supplémentaires
 
-Ce projet a été créé dans le cadre d'un test technique pour démontrer la maîtrise de React et TypeScript. Aucune bibliothèque externe n'a été utilisée dans le développement de cette application.
+Ce projet a été créé dans le cadre d'un test technique pour démontrer la maîtrise de React et TypeScript. Aucune bibliothèque externe n'a été utilisée dans le développement de cette application.  
+Le projet a également été host sur le site codesandbox.io et est actuellement disponible sur [PasswordGenerator](https://wm3rwh-3000.csb.app/).
 
 ## Licence
 
