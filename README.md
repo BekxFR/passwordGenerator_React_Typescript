@@ -28,19 +28,28 @@ Cette application est un générateur de mots de passe aléatoires construit ave
 
 ## Installation
 
-1. Clonez le dépôt sur votre machine locale :
+1. Sans utilisation du Makefile :
 
-   ```bash
-   git clone https://github.com/BekxFR/passwordGenerator_React_Typescript.git
-   cd passwordGenerator_React_Typescript
-   npm install
-   npm run start
-   ```
+```bash
+git clone https://github.com/BekxFR/passwordGenerator_React_Typescript.git
+cd passwordGenerator_React_Typescript
+npm install
+npm run start
+```
+
+2. Avec l'utilisation du Makefile :
+
+```bash
+git clone https://github.com/BekxFR/passwordGenerator_React_Typescript.git
+cd passwordGenerator_React_Typescript
+make
+```
+
 L'application sera exécutée sur [http://localhost:3000](http://localhost:3000).
 
 ## Réalisation
 
-Le générateur de mot de passe a été créé pour pouvoir être utilisé comme un composant exportable. 
+Le générateur de mot de passe a été créé pour pouvoir être utilisé comme un composant exportable.
 
 ### Structure des fichiers
 
@@ -63,14 +72,13 @@ L'algorithme pour l'indicateur de robustesse est basé sur des informations pré
 L'algorithme pour générer le mot de passe est disponible en deux versions :
 
 1. **Version simple** : Sélectionne chaque caractère de façon aléatoire parmi tous les caractères choisis par l'utilisateur.
-2. **Version complexe** : 
-    - Sélectionne d'abord de façon aléatoire autant de caractères pour chaque type sélectionné par l'utilisateur. Par exemple, pour un mot de passe de 9 caractères avec 3 types sélectionnés, il y aura toujours 3 caractères de chaque type. Les types ont un ordre de priorité en fonction de leur nombre total et de leur complexité : symboles, majuscules, minuscules, nombres.
-    - Ensuite, les caractères choisis sont placés de façon aléatoire dans le mot de passe final.
+2. **Version complexe** :
+   - Sélectionne d'abord de façon aléatoire autant de caractères pour chaque type sélectionné par l'utilisateur. Par exemple, pour un mot de passe de 9 caractères avec 3 types sélectionnés, il y aura toujours 3 caractères de chaque type. Les types ont un ordre de priorité en fonction de leur nombre total et de leur complexité : symboles, majuscules, minuscules, nombres.
+   - Ensuite, les caractères choisis sont placés de façon aléatoire dans le mot de passe final.
 
 ### Design
 
 Le design est principalement présent dans le fichier `App.css` avec des variables utilisées pour les éléments principaux. Certains styles sont également définis dans les fichiers `.tsx` pour le rendu dynamique.
-
 
 ## Utilisation
 
