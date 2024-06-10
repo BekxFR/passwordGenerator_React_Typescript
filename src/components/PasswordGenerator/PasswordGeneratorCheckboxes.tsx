@@ -1,19 +1,8 @@
 import React from "react";
-import { Checkbox } from "./Checkbox";
-
-interface CheckBoxProps {
-  upperCase: boolean;
-  setUpperCase: React.Dispatch<React.SetStateAction<boolean>>;
-  lowerCase: boolean;
-  setLowerCase: React.Dispatch<React.SetStateAction<boolean>>;
-  numbers: boolean;
-  setNumbers: React.Dispatch<React.SetStateAction<boolean>>;
-  symbols: boolean;
-  setSymbols: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { Checkbox, CheckBoxSetterProps } from "./";
 
 export const PasswordGeneratorCheckbox: React.FC<{
-  checkboxProps: CheckBoxProps;
+  checkboxProps: CheckBoxSetterProps;
 }> = ({ checkboxProps }) => {
   const {
     upperCase,

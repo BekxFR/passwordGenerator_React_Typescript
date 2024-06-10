@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { CopyPasswordButton } from "./CopyPasswordButton";
+import React, { useContext, useEffect } from "react";
+import { CopyPasswordButton, PasswordGeneratorContext } from "./";
 
-interface PasswordContainerProps {
-  pwdValue: string;
-}
-
-export const PasswordContainer: React.FC<PasswordContainerProps> = ({
-  pwdValue,
-}) => {
-  const [value, setValue] = useState<string>(pwdValue);
+export const PasswordContainer: React.FC = () => {
+  const { pwdValue, setPwdValue } = useContext(PasswordGeneratorContext);
 
   useEffect(() => {
-    setValue(pwdValue);
+    setPwdValue(pwdValue);
+    // eslint-disable-next-line
   }, [pwdValue]);
 
   return (
     <div className="password-container">
-      <div className="password-field">{value}</div>
-      <CopyPasswordButton pwdValue={value} />
+      <div className="password-field">{pwdValue}</div>
+      <CopyPasswordButton {...{ pwdValue }} />
     </div>
   );
 };

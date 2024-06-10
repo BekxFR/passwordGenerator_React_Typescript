@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 interface SliderProps {
   min: number;
@@ -8,28 +8,34 @@ interface SliderProps {
 }
 
 interface LengthPartProps {
-  pwdLength: number;
+  passwordLength: number;
   setPwdLength: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const PasswordLengthContainer: React.FC<LengthPartProps> = React.memo(
   (props) => {
-    const { pwdLength, setPwdLength } = props;
-    const [value, setValue] = useState<number>(pwdLength);
+    const MIN = 0;
+    const MAX = 20;
+    const { passwordLength, setPwdLength } = props;
 
     useEffect(() => {
-      setPwdLength(value);
+      setPwdLength(passwordLength);
       // eslint-disable-next-line
-    }, [value]);
+    }, [passwordLength]);
 
     return (
       <div className="length-container">
         <div className="length-value">
           <p className="length-text">Character Length</p>
-          <p className="length-size">{value}</p>
+          <p className="length-size">{passwordLength}</p>
         </div>
         <div className="slider-container">
-          <Slider min={0} max={20} lengthValue={value} onChange={setValue} />
+          <Slider
+            min={MIN}
+            max={MAX}
+            lengthValue={passwordLength}
+            onChange={setPwdLength}
+          />
         </div>
       </div>
     );
@@ -42,14 +48,13 @@ export const Slider: React.FC<SliderProps> = ({
   lengthValue,
   onChange,
 }) => {
-  const MAX = 20;
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value, 10);
     onChange(newValue);
   };
 
   const getBackgroundSize = () => {
-    return { backgroundSize: `${(lengthValue * 100) / MAX}% 100%` };
+    return { backgroundSize: `${(lengthValue * 100) / max}% 100%` };
   };
 
   return (

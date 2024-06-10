@@ -1,13 +1,13 @@
-import { CheckboxProps } from "./types/PasswordGeneratorType";
+import { CheckboxProps } from "./";
 
 interface PasswordGeneratorProps {
-  pwdLength: number;
+  passwordLength: number;
   setPwdValue: React.Dispatch<React.SetStateAction<string>>;
   checkboxProps: CheckboxProps;
 }
 
 export const simpleGeneratePassword = (props: PasswordGeneratorProps) => {
-  const { pwdLength, setPwdValue, checkboxProps } = props;
+  const { passwordLength, setPwdValue, checkboxProps } = props;
   const { upperCase, lowerCase, numbers, symbols } = checkboxProps;
   const characters = {
     upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -18,7 +18,7 @@ export const simpleGeneratePassword = (props: PasswordGeneratorProps) => {
   const passwordCharacters = `${upperCase ? characters.upperCase : ""}${
     lowerCase ? characters.lowerCase : ""
   }${numbers ? characters.numbers : ""}${symbols ? characters.symbols : ""}`;
-  const password = Array(pwdLength)
+  const password = Array(passwordLength)
     .fill(passwordCharacters)
     .map((x) => x[Math.floor(Math.random() * x.length)])
     .join("");
@@ -26,9 +26,8 @@ export const simpleGeneratePassword = (props: PasswordGeneratorProps) => {
 };
 
 export const complexGeneratePassword = (props: PasswordGeneratorProps) => {
-  const { pwdLength, setPwdValue, checkboxProps } = props;
+  const { passwordLength, setPwdValue, checkboxProps } = props;
   const { upperCase, lowerCase, numbers, symbols } = checkboxProps;
-  const passwordLength = pwdLength;
   const characterSet: { [key: string]: string } = {
     upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     lowerCase: "abcdefghijklmnopqrstuvwxyz",

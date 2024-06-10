@@ -1,4 +1,5 @@
-import { PasswordGeneratorContainer } from "./PasswordGeneratorContainer";
+import { PasswordGeneratorContainer } from "./";
+import "./PasswordGenerator.css";
 
 export const PasswordGeneratorPage = () => {
   return (

@@ -12,9 +12,8 @@ const CopySvg = () => {
   );
 };
 
-export const CopyPasswordButton: React.FC<PasswordContainerProps> = ({
-  pwdValue,
-}) => {
+export const CopyPasswordButton: React.FC<PasswordContainerProps> = (props) => {
+  const { pwdValue } = props;
   const [copyStatus, setCopyStatus] = useState<boolean>(false);
 
   const handleClick = () => {
