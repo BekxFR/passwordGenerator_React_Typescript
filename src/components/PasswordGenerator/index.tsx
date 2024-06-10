@@ -6,7 +6,7 @@ export { Checkbox } from "./Checkbox";
 export { CopyPasswordButton } from "./CopyPasswordButton";
 export {
   PasswordGeneratorContext,
-  PasswordGeneratorContextProvider,
+  default as PasswordGeneratorContextProvider,
 } from "./context/PasswordGenerator";
 export { PasswordLengthContainer } from "./LengthAndSlider";
 export { PasswordGeneratorCheckbox } from "./PasswordGeneratorCheckboxes";

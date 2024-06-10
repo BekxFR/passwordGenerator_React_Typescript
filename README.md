@@ -55,9 +55,17 @@ Le générateur de mot de passe a été créé pour pouvoir être utilisé comme
 
 L'ensemble des fichiers nécessaires pour ce composant est présent dans le répertoire [src/components/PasswordGenerator](https://github.com/BekxFR/passwordGenerator_React_Typescript/tree/main/src/components/PasswordGenerator).
 
+### Utilisation d'un Context React
+
+Pour faciliter la gestion des états globaux nécessaires au bon fonctionnement de l'application, un Context React a été créé. Ce [Context](https://github.com/BekxFR/passwordGenerator_React_Typescript/tree/main/src/components/PasswordGenerator/context) contient l'ensemble des valeurs et fonctions setters associées, permettant de centraliser et de partager facilement les états entre les différents composants.
+
 ### Typage et interfaces
 
-Le code est typé avec des interfaces utilisées à plusieurs endroits du code.
+L'ensemble du code est typé avec des interfaces uniques ou géneriques. Les interfaces utilisées dans le Context et les composants ont été rationalisées pour assurer une cohérence et une maintenabilité du code. Toutes les interfaces géneriques sont définies dans un fichier séparé afin de centraliser les définitions de types et de les réutiliser facilement.
+
+### Index pour les Exports/Imports
+
+Un fichier index est utilisé pour regrouper tous les exports et imports nécessaires, facilitant ainsi la gestion des dépendances et l'organisation du code.
 
 ### Hook personnalisé
 
@@ -78,7 +86,7 @@ L'algorithme pour générer le mot de passe est disponible en deux versions :
 
 ### Design
 
-Le design est principalement présent dans le fichier `App.css` avec des variables utilisées pour les éléments principaux. Certains styles sont également définis dans les fichiers `.tsx` pour le rendu dynamique.
+Le design est principalement présent dans le fichier `PasswordGenerator.css` avec des variables utilisées pour les éléments principaux. Certains styles sont également définis dans les fichiers `.tsx` pour le rendu dynamique.
 
 ## Utilisation
 

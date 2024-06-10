@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import {
-  PasswordGeneratorParams,
   initialValues,
+  PasswordGeneratorContextParams,
 } from "../types/PasswordGeneratorType";
 
-interface PasswordGeneratorContextParams extends PasswordGeneratorParams {
-  setPwdLength: React.Dispatch<React.SetStateAction<number>>;
-  setPwdValue: React.Dispatch<React.SetStateAction<string>>;
-  setSecureLevel: React.Dispatch<React.SetStateAction<number>>;
-  setUpperCase: React.Dispatch<React.SetStateAction<boolean>>;
-  setLowerCase: React.Dispatch<React.SetStateAction<boolean>>;
-  setNumbers: React.Dispatch<React.SetStateAction<boolean>>;
-  setSymbols: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export const PasswordGeneratorContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
+const PasswordGeneratorContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
   const [passwordLength, setPwdLength] = useState<number>(
