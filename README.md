@@ -57,7 +57,7 @@ L'ensemble des fichiers nécessaires pour ce composant est présent dans le rép
 
 ### Utilisation d'un Context React
 
-Pour faciliter la gestion des états globaux nécessaires au bon fonctionnement de l'application, un Context React a été créé. Ce [Context](https://github.com/BekxFR/passwordGenerator_React_Typescript/tree/main/src/components/PasswordGenerator/context) contient l'ensemble des valeurs et fonctions setters associées, permettant de centraliser et de partager facilement les états entre les différents composants.
+Pour faciliter la gestion des états globaux nécessaires au bon fonctionnement de l'application, un Context React a été créé. Ce [Context](https://github.com/BekxFR/passwordGenerator_React_Typescript/tree/main/src/components/PasswordGenerator/context/PasswordGenerator.tsx) contient l'ensemble des valeurs et fonctions setters associées, permettant de centraliser et de partager facilement les états entre les différents composants.
 
 ### Typage et interfaces
 
